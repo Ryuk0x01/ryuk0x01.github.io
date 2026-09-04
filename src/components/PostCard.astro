@@ -3,34 +3,34 @@ import type { CollectionEntry } from "astro:content";
 import path from "node:path";
 import { Icon } from "astro-icon/components";
 import { formatDateToYYYYMMDD } from "../utils/date-utils";
-import { getCategoryUrl, getTagUrl, getDir } from "../utils/url-utils";
+import { getCategoryUrl, getDir, getTagUrl } from "../utils/url-utils";
 import ImageWrapper from "./misc/ImageWrapper.astro";
 
 interface Props {
-    class?: string;
-    entry: CollectionEntry<"posts">;
-    title: string;
-    url: string;
-    published: Date;
-    updated?: Date;
-    tags: string[];
-    category: string | null;
-    image: string;
-    description: string;
-    draft: boolean;
-    style: string;
+	class?: string;
+	entry: CollectionEntry<"posts">;
+	title: string;
+	url: string;
+	published: Date;
+	updated?: Date;
+	tags: string[];
+	category: string | null;
+	image: string;
+	description: string;
+	draft: boolean;
+	style: string;
 }
 
 const {
-    entry,
-    title,
-    url,
-    published,
-    tags = [],
-    category,
-    image,
-    description,
-    style,
+	entry,
+	title,
+	url,
+	published,
+	tags = [],
+	category,
+	image,
+	description,
+	style,
 } = Astro.props;
 
 const className = Astro.props.class;

@@ -53,7 +53,7 @@ export const navBarConfig: NavBarConfig = {
 			name: "LinkedIn",
 			url: "https://linkedin.com/in/soufiane-hachimi",
 			external: true,
-		}
+		},
 	],
 };
 
@@ -70,12 +70,12 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "LinkedIn",
 			icon: "fa6-brands:linkedin",
-			url: "https://linkedin.com/in/soufiane-hachimi"
+			url: "https://linkedin.com/in/soufiane-hachimi",
 		},
 		{
 			name: "HackTheBox",
 			icon: "grommet-icons:cube",
-			url: "https://app.hackthebox.com/users/2802724"
+			url: "https://app.hackthebox.com/users/2802724",
 		},
 		{
 			name: "CTFtime",
@@ -88,8 +88,7 @@ export const profileConfig: ProfileConfig = {
 			// You will need to install the corresponding icon set if it's not already included
 			// `pnpm add @iconify-json/<icon-set-name>`
 			url: "https://x.com/Ryuk0x01",
-		}
-		
+		},
 	],
 };
 

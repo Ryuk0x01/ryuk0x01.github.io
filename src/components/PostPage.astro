@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { getPostUrlBySlug, getTagUrl } from "@utils/url-utils";
 import { getSortedPosts } from "@utils/content-utils";
+import { getPostUrlBySlug, getTagUrl } from "@utils/url-utils";
 import PostCard from "./PostCard.astro";
 
 const { page } = Astro.props;
@@ -11,10 +11,13 @@ const allPosts = await getSortedPosts();
 const totalPosts = allPosts.length;
 
 const getCategoryCount = (categoryName: string) => {
-    return allPosts.filter(post => 
-        post.data.category?.toLowerCase() === categoryName.toLowerCase() ||
-        post.data.tags?.some((t: string) => t.toLowerCase() === categoryName.toLowerCase())
-    ).length;
+	return allPosts.filter(
+		(post) =>
+			post.data.category?.toLowerCase() === categoryName.toLowerCase() ||
+			post.data.tags?.some(
+				(t: string) => t.toLowerCase() === categoryName.toLowerCase(),
+			),
+	).length;
 };
 
 const ctfCount = getCategoryCount("ctf");
