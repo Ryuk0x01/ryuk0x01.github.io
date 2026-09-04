@@ -51,13 +51,24 @@ const mainPanelTop = siteConfig.banner.enable
     </div>
 </div>
 
-<!-- Banner -->
-{siteConfig.banner.enable && <div id="banner-wrapper" class={`absolute z-10 w-full transition duration-700 overflow-hidden`} style={`top: -${BANNER_HEIGHT_EXTEND}vh`}>
-    <ImageWrapper id="banner" alt="Banner image of the blog" class:list={["object-cover h-full transition duration-700 opacity-0 scale-105"]}
-                  src={siteConfig.banner.src} position={siteConfig.banner.position}
-    >
-    </ImageWrapper>
-</div>}
+<!-- Banner with Clean Gradient & Moving Glow -->
+{siteConfig.banner.enable && (
+    <div id="banner-wrapper" class="absolute z-10 w-full transition duration-700 overflow-hidden pointer-events-none" style={`top: -${BANNER_HEIGHT_EXTEND}vh`}>
+        <ImageWrapper 
+            id="banner" 
+            alt="Banner image of the blog" 
+            class:list={["object-cover h-full transition duration-700 opacity-0 scale-105 pointer-events-auto"]}
+            src={siteConfig.banner.src} 
+            position={siteConfig.banner.position}
+        />
+
+        <!-- Smooth Bottom Fade Overlay -->
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0e1726] via-[#0e1726]/60 to-transparent pointer-events-none z-20"></div>
+
+        <!-- Animated Cyan Light Beam Line -->
+        <div class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#00f2fe] to-transparent z-30 opacity-70 animate-pulse shadow-[0_0_12px_#00f2fe]"></div>
+    </div>
+)}
 
 <!-- Main content -->
 <div class="absolute w-full z-30 pointer-events-none" style={`top: ${mainPanelTop}`}>
