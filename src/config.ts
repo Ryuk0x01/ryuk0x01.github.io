@@ -16,7 +16,7 @@ export const siteConfig: SiteConfig = {
 		fixed: false, // Hide the theme color picker for visitors
 	},
 	banner: {
-		enable: true,
+		enable: false,
 		src: "assets/images/banner.gif", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 		position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
 		credit: {
@@ -60,7 +60,7 @@ export const navBarConfig: NavBarConfig = {
 export const profileConfig: ProfileConfig = {
 	avatar: "assets/images/ryuk.jpeg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 	name: "Ryuk0x01",
-	bio: "Security Researcher · Bug Hunter · CTF Player",
+	bio: "Security Researcher · Software Engineer · CTF Player",
 	links: [
 		{
 			name: "GitHub",
@@ -93,7 +93,7 @@ export const profileConfig: ProfileConfig = {
 };
 
 export const licenseConfig: LicenseConfig = {
-	enable: true,
+	enable: false,
 	name: "CC BY-NC-SA 4.0 — Soufiane Hachimi (Ryuk0x01)",
 	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
 };

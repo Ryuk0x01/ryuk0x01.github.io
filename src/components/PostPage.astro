@@ -5,82 +5,9 @@ import { getPostUrlBySlug, getTagUrl } from "@utils/url-utils";
 import PostCard from "./PostCard.astro";
 
 const { page } = Astro.props;
-
-const allPosts = await getSortedPosts();
-
-const totalPosts = allPosts.length;
-
-const getCategoryCount = (categoryName: string) => {
-	return allPosts.filter(
-		(post) =>
-			post.data.category?.toLowerCase() === categoryName.toLowerCase() ||
-			post.data.tags?.some(
-				(t: string) => t.toLowerCase() === categoryName.toLowerCase(),
-			),
-	).length;
-};
-
-const ctfCount = getCategoryCount("ctf");
-const securityResearchCount = getCategoryCount("security-research");
-const projectsCount = getCategoryCount("projects");
-const bugBountyCount = getCategoryCount("bug-bounty");
-const writeupsCount = getCategoryCount("write-up");
 let delay = 0;
 const interval = 50;
 ---
-
-<!-- Dynamic Category Navigation Bar -->
-<div class="card-base w-full rounded-2xl p-2.5 md:p-3 mb-4 flex items-center gap-2 overflow-x-auto no-scrollbar onload-animation border border-black/5 dark:border-white/10">    
-    <!-- Home Button -->
-    <a href="/" 
-       aria-label="Home"
-       class="flex items-center justify-center p-3 rounded-xl bg-black/5 dark:bg-white/10 text-black/70 dark:text-white/70 hover:bg-[var(--primary)] hover:text-white dark:hover:bg-[var(--primary)] dark:hover:text-black transition flex-shrink-0">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-            <polyline points="9 22 9 12 15 12 15 22"/>
-        </svg>
-    </a>
-
-    <!-- Divider Line -->
-    <div class="h-6 w-[1px] bg-black/10 dark:bg-white/10 flex-shrink-0 mx-1"></div>
-
-    <!-- Archive (Total) -->
-    <a href="/archive/" class="group flex items-center gap-2.5 px-4 py-2 rounded-xl text-sm font-semibold bg-black/5 dark:bg-white/10 text-black/80 dark:text-white/80 hover:bg-[var(--primary)] hover:text-white dark:hover:bg-[var(--primary)] dark:hover:text-black transition whitespace-nowrap flex-shrink-0">
-        <span>Archive</span>
-        <span class="px-2 py-0.5 text-xs font-mono rounded-md bg-black/10 dark:bg-white/15 group-hover:bg-white/20 dark:group-hover:bg-black/20 transition">{totalPosts}</span>
-    </a>
-
-    <!-- CTF -->
-    <a href={getTagUrl("ctf")} class="group flex items-center gap-2.5 px-4 py-2 rounded-xl text-sm font-semibold bg-black/5 dark:bg-white/10 text-black/80 dark:text-white/80 hover:bg-[var(--primary)] hover:text-white dark:hover:bg-[var(--primary)] dark:hover:text-black transition whitespace-nowrap flex-shrink-0">
-        <span>CTF</span>
-        <span class="px-2 py-0.5 text-xs font-mono rounded-md bg-black/10 dark:bg-white/15 group-hover:bg-white/20 dark:group-hover:bg-black/20 transition">{ctfCount}</span>
-    </a>
-
-    <!-- Security Research -->
-    <a href={getTagUrl("security-research")} class="group flex items-center gap-2.5 px-4 py-2 rounded-xl text-sm font-semibold bg-black/5 dark:bg-white/10 text-black/80 dark:text-white/80 hover:bg-[var(--primary)] hover:text-white dark:hover:bg-[var(--primary)] dark:hover:text-black transition whitespace-nowrap flex-shrink-0">
-        <span>Security Research</span>
-        <span class="px-2 py-0.5 text-xs font-mono rounded-md bg-black/10 dark:bg-white/15 group-hover:bg-white/20 dark:group-hover:bg-black/20 transition">{securityResearchCount}</span>
-    </a>
-
-    
-    <!-- Bug Bounty -->
-    <a href={getTagUrl("bug-bounty")} class="group flex items-center gap-2.5 px-4 py-2 rounded-xl text-sm font-semibold bg-black/5 dark:bg-white/10 text-black/80 dark:text-white/80 hover:bg-[var(--primary)] hover:text-white dark:hover:bg-[var(--primary)] dark:hover:text-black transition whitespace-nowrap flex-shrink-0">
-        <span>Bug Bounty</span>
-        <span class="px-2 py-0.5 text-xs font-mono rounded-md bg-black/10 dark:bg-white/15 group-hover:bg-white/20 dark:group-hover:bg-black/20 transition">{bugBountyCount}</span>
-    </a>
-
-    <!-- Write-ups -->
-    <a href={getTagUrl("write-up")} class="group flex items-center gap-2.5 px-4 py-2 rounded-xl text-sm font-semibold bg-black/5 dark:bg-white/10 text-black/80 dark:text-white/80 hover:bg-[var(--primary)] hover:text-white dark:hover:bg-[var(--primary)] dark:hover:text-black transition whitespace-nowrap flex-shrink-0">
-        <span>Write-ups</span>
-        <span class="px-2 py-0.5 text-xs font-mono rounded-md bg-black/10 dark:bg-white/15 group-hover:bg-white/20 dark:group-hover:bg-black/20 transition">{writeupsCount}</span>
-    </a>
-
-    <!-- Projects -->
-    <a href={getTagUrl("projects")} class="group flex items-center gap-2.5 px-4 py-2 rounded-xl text-sm font-semibold bg-black/5 dark:bg-white/10 text-black/80 dark:text-white/80 hover:bg-[var(--primary)] hover:text-white dark:hover:bg-[var(--primary)] dark:hover:text-black transition whitespace-nowrap flex-shrink-0">
-        <span>Projects</span>
-        <span class="px-2 py-0.5 text-xs font-mono rounded-md bg-black/10 dark:bg-white/15 group-hover:bg-white/20 dark:group-hover:bg-black/20 transition">{projectsCount}</span>
-    </a>
-</div>
 
 <div class="transition grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
     {page.data.map((entry: CollectionEntry<"posts">) => (
