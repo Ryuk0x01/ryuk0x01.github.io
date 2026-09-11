@@ -17,7 +17,7 @@ export const siteConfig: SiteConfig = {
 	},
 	banner: {
 		enable: false,
-		src: "assets/images/banner.gif", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+		src: "assets/images/bb.gif", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 		position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
 		credit: {
 			enable: false, // Display the credit text of the banner image
@@ -60,7 +60,7 @@ export const navBarConfig: NavBarConfig = {
 export const profileConfig: ProfileConfig = {
 	avatar: "assets/images/kid.gif", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 	name: "Ryuk0x01",
-	bio: "Security Researcher · Software Engineer · CTF Player",
+	bio: "Offensive Security · Pentester · CTF Player",
 	links: [
 		{
 			name: "GitHub",
