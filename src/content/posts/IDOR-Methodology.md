@@ -9,10 +9,8 @@ tags: ["web-security", "idor", "access-control", "portswigger", "write-up"]
 draft: false
 ---
 
-# Insecure Direct Object References (IDOR)
-## Methodology, Techniques & PortSwigger Lab
-
-**========================================================**
+Insecure Direct Object References (IDOR) — Methodology, Techniques & PortSwigger Lab
+========================================================
 
 ## Introduction
 
