@@ -5,7 +5,7 @@ description: "A technical walkthrough of the Intigriti October 2026 CTF challeng
 image: "/assets/images/halloween-intigriti/cover.gif"
 category: "Write-ups"
 tags: ["intigriti", "web-security", "ctf", "write-up", "race-condition", "business-logic", "burp-suite"]
-draft: true
+draft: false
 ---
 
 Halloween Store — Race Condition in Coupon Logic
